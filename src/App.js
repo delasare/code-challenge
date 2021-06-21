@@ -1,6 +1,6 @@
 import './App.css';
-import { CountDisplay, Counter } from './count';
-import { CountProvider } from './count-context';
+import { CountDisplay, Counter } from './Counter/count';
+import { CountProvider } from './Counter/count-context';
 
 function App() {
   return (
