@@ -2,16 +2,24 @@ import * as React from 'react';
 const MyFeedContext = React.createContext();
 
 
+const initialFeedState = {
+    myUrls: [],
+    incomingUrls: [],
+}
+
+
 function myFeedReducer(state, action) {
     switch (action.type) {
-        case 'increment': {
-            return { count: state.count + 1 };
+        case 'add-url': {
+            const { myUrls } = state;
+            let test = myUrls ? myUrls : [];
+            return {...state, myUrls: [...test, action.payload]};
         }
-        case 'decrement': {
-            return { count: state.count - 1 };
+        case 'remove-url': {
+            return { url: state.count - 1 };
         }
         default: {
-            throw new Error(`Unhandled action type: ${action.type}`)
+            return {...initialFeedState}
         }
     }
 }
@@ -19,6 +27,7 @@ function myFeedReducer(state, action) {
 function MyFeedProvider({ children }) {
     const [state, dispatch] = React.useReducer(myFeedReducer, { count: 0 })
     const value = { state, dispatch };
+    console.log('STATE', state);
     return <MyFeedContext.Provider value={value}>{children}</MyFeedContext.Provider>
 }
 
@@ -27,6 +36,7 @@ function useMyFeed() {
     if (context === undefined) {
         throw new Error('useCount must be used within a Context Provider');
     }
+    console.log('CONTEXT', context);
     return context;
 }
 
