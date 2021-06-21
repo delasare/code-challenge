@@ -1,14 +1,14 @@
 import './App.css';
-import { CountDisplay, Counter } from './Counter/count';
-import { CountProvider } from './Counter/count-context';
+import { MyFeedDisplay, MyFeedUrls } from './MyFeed/myFeed';
+import { MyFeedProvider } from './MyFeed/myFeed-context';
 
 function App() {
   return (
     <div className="App">
-      <CountProvider>
-        <CountDisplay />
-        <Counter />
-      </CountProvider>
+      <MyFeedProvider>
+        <MyFeedDisplay />
+        <MyFeedUrls />
+      </MyFeedProvider>
     </div>
   );
 }

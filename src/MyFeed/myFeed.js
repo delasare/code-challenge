@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { useCount } from './count-context';
+import { useCount } from './myFeed-context';
 
 
-function CountDisplay() {
+function MyFeedDisplay() {
     const { state: { count }, } = useCount();
     return <div>{`The current count is ${count}`}</div>
 }
 
 
-function Counter() {
+function MyFeedUrls() {
     const { dispatch } = useCount();
     return (
         <>
@@ -22,4 +22,4 @@ function Counter() {
     ) 
 }
 
-export {CountDisplay, Counter}
+export {MyFeedDisplay, MyFeedUrls}

@@ -1,8 +1,8 @@
 import * as React from 'react';
-const CountContext = React.createContext();
+const MyFeedContext = React.createContext();
 
 
-function countReducer(state, action) {
+function myFeedReducer(state, action) {
     switch (action.type) {
         case 'increment': {
             return { count: state.count + 1 };
@@ -16,14 +16,14 @@ function countReducer(state, action) {
     }
 }
 
-function CountProvider({ children }) {
-    const [state, dispatch] = React.useReducer(countReducer, { count: 0 })
+function MyFeedProvider({ children }) {
+    const [state, dispatch] = React.useReducer(myFeedReducer, { count: 0 })
     const value = { state, dispatch };
-    return <CountContext.Provider value={value}>{children}</CountContext.Provider>
+    return <MyFeedContext.Provider value={value}>{children}</MyFeedContext.Provider>
 }
 
-function useCount() {
-    const context = React.useContext(CountContext);
+function useMyFeed() {
+    const context = React.useContext(MyFeedContext);
     if (context === undefined) {
         throw new Error('useCount must be used within a Context Provider');
     }
@@ -32,4 +32,4 @@ function useCount() {
 
 
 
-export { CountProvider, useCount };
+export { MyFeedProvider, useMyFeed };
