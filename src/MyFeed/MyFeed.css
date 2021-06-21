@@ -1,0 +1,30 @@
+button {
+    margin: 1rem .5rem;
+    font-size: 1rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 0 .5rem 0 .5rem;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+li > div {
+    margin: .5rem;
+}
+
+
+.error {
+    margin: .5rem;
+    color: red;
+    font-weight: bold;
+}
+
+.engage {
+    margin-right: 1rem;
+}
